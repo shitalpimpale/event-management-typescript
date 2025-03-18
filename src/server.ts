@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import authRoutes from "./routes/auth";
 import protectedRoutes from "./routes/protected";
+import eventsRoutes from "./routes/events";
 
 dotenv.config();
 const app = express();
@@ -19,6 +20,9 @@ mongoose.connect(process.env.MONGO_URI!)
 
 app.use("/auth",authRoutes);
 app.use("/protected",protectedRoutes);
+app.use("/events",eventsRoutes);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT,() => console.log("listening on port ${PORT}"))
+const PORT = process.env.PORT || 5002;
+app.listen(5002,() => console.log("listening on port ${PORT}"));
+
+export default app;

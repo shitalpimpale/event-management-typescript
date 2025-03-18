@@ -49,3 +49,8 @@ Thumbs.db
 *.wmv
 
 *.mjs
+
+coverage/
+jest.config.ts
+src/tests/
+

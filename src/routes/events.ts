@@ -48,7 +48,8 @@ router.get('/:id',authMiddleware,async (req:any,res:any) => {
 
 router.delete('/:id',authMiddleware,async(req:any,res:any) => {
     try{
-        const id = req.param.id;
+        const id = req.params.id;
+
         const event = await Event.findById(id);
         if (!event) return res.status(404).json({ message: "Event not found" });
 
@@ -59,8 +60,10 @@ router.delete('/:id',authMiddleware,async(req:any,res:any) => {
         await event.deleteOne();
         res.json({ message: "Event deleted successfully" });
 
-        
+
     }catch(error:any){
         res.status(500).json({message:error.message})
     }
 })
+
+export default router;
