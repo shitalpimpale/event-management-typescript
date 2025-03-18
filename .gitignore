@@ -52,5 +52,5 @@ Thumbs.db
 
 coverage/
 jest.config.ts
-src/tests/
+
 
